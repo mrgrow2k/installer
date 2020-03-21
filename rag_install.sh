@@ -146,7 +146,15 @@ fi
 
 mkdir -p $CONF_DIR_TMP   
 cd $CONF_DIR_TMP  
-echo "* Bootstraping Blockchain without conf files"
+echo -e "${BLUE}************* Bootstraping Blockchain ****************${NC}"
+echo -e "${WHITE}    ___ _                       __    __      _ _   "
+echo -e "${WHITE}   / _ \ | ___  __   ___  ___  / / /\ \ \__  (_) |_ "
+echo -e "${WHITE}  / /_)/ |/ _ \/ _\ / __|/ _ \ \ \/  \/ / _\ | | __|"
+echo -e "${WHITE} / ___/| |  __/ (_|_\__ \  __/  \  /\  / (_|_| | |_ "
+echo -e "${WHITE} \/    |_|\___|\__,_|___/\___|   \/  \/ \__,_|_|\__|"
+echo ""
+echo -e "                  ${GREEN}This should only takes a few minutes..."
+echo ""
 wget ${BOOTSTRAP_URL} -O bootstrap.zip  >/dev/null 2>&1
 cd ~
 
@@ -610,7 +618,15 @@ for FILE in ~/bin/${NAME}d_$PARAM1.sh; do
       
       cd $CONFPATH
       echo CURRENT CONF FOLDER: $PWD
-      echo "* Bootstraping Blockchain without conf files"
+      echo -e "${BLUE}************* Bootstraping Blockchain ****************${NC}"
+      echo -e "${WHITE}    ___ _                       __    __      _ _   "
+      echo -e "${WHITE}   / _ \ | ___  __   ___  ___  / / /\ \ \__  (_) |_ "
+      echo -e "${WHITE}  / /_)/ |/ _ \/ _\ / __|/ _ \ \ \/  \/ / _\ | | __|"
+      echo -e "${WHITE} / ___/| |  __/ (_|_\__ \  __/  \  /\  / (_|_| | |_ "
+      echo -e "${WHITE} \/    |_|\___|\__,_|___/\___|   \/  \/ \__,_|_|\__|"
+      echo ""
+      echo -e "                  ${GREEN}This should only takes a few minutes..."
+      echo ""
       wget ${BOOTSTRAP_URL} -O bootstrap.zip >/dev/null 2>&1
       # rm -R peers.dat 
       rm -R ./database
@@ -655,7 +671,7 @@ sudo apt-get install -y jq > /dev/null 2>&1
 
 for FILE in ~/bin/${NAME}d_$PARAM1.sh; do
   sleep 2
-  echo "${YELLOW}****************************************************************************${NC}"
+  echo "****************************************************************************"
   echo FILE: " $FILE"
 
   STARTPOS=$(echo $FILE | grep -b -o _)
@@ -711,7 +727,7 @@ else
 fi
 
 for FILE in ~/bin/${NAME}d_$PARAM1.sh; do
-  echo "${YELLOW}*******************************************************${NC}"
+  echo "*******************************************************"
   echo "FILE "$FILE
   $FILE
 done
@@ -726,7 +742,7 @@ else
 fi
 
 for FILE in ~/bin/${NAME}-cli_$PARAM1.sh; do
-  echo "${YELLOW}*******************************************************${NC}"
+  echo "*******************************************************"
   echo "FILE "$FILE
   $FILE stop
 done
@@ -740,7 +756,7 @@ else
 fi
 
 for FILE in ~/bin/${NAME}-cli_$PARAM1.sh; do
-  echo "${YELLOW}*******************************************************${NC}"
+  echo "*******************************************************"
   echo "FILE "$FILE
   $FILE masternode status
 done
@@ -767,7 +783,7 @@ if [ ! -f ~/bin/${NAME}d_$PARAM1.sh ]; then
 fi
 
 for FILE in ~/bin/${NAME}d_$PARAM1.sh; do
-  echo "${YELLOW}****************************************************************************${NC}"
+  echo "****************************************************************************"
   COUNTER=1
   DATE=$(date '+%d.%m.%Y %H:%M:%S');
   echo "DATE="$DATE
@@ -844,7 +860,15 @@ for FILE in ~/bin/${NAME}d_$PARAM1.sh; do
     
     cd $CONFPATH
     echo CURRENT CONF FOLDER: $PWD
-    echo "* Bootstraping Blockchain without conf files"
+    echo -e "${BLUE}************* Bootstraping Blockchain ****************${NC}"
+    echo -e "${WHITE}    ___ _                       __    __      _ _   "
+    echo -e "${WHITE}   / _ \ | ___  __   ___  ___  / / /\ \ \__  (_) |_ "
+    echo -e "${WHITE}  / /_)/ |/ _ \/ _\ / __|/ _ \ \ \/  \/ / _\ | | __|"
+    echo -e "${WHITE} / ___/| |  __/ (_|_\__ \  __/  \  /\  / (_|_| | |_ "
+    echo -e "${WHITE} \/    |_|\___|\__,_|___/\___|   \/  \/ \__,_|_|\__|"
+    echo ""
+    echo -e "                  ${GREEN}This should only takes a few minutes..."
+    echo ""
     wget ${BOOTSTRAP_URL} -O bootstrap.zip >/dev/null 2>&1
     # rm -R peers.dat 
     rm -R ./database
