@@ -29,7 +29,8 @@ COIN_TGZ='https://github.com/ragnaproject/Ragnarok/releases/download/3.0.1.0/Rag
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 CONF_FILE="ragnrok.conf"
 CONF_DIR_TMP=~/"${NAME}_tmp"
-BOOTSTRAP_URL='http://159.65.64.248/files/bootstrap.zip'
+# BOOTSTRAP_URL='http://159.65.64.248/files/bootstrap.zip'
+BOOTSTRAP_URL='https://github.com/ragnaproject/bootstraps/releases/download/760590/bootstrap.zip'
 COIN_PATH='/usr/bin/'
 COIN_DAEMON='ragnarokd'
 COIN_CLI='ragnarok-cli'
@@ -146,7 +147,7 @@ fi
 mkdir -p $CONF_DIR_TMP   
 cd $CONF_DIR_TMP  
 echo "* Bootstraping Blockchain without conf files"
-wget ${BOOTSTRAP_URL} -O bootstrap.zip
+wget ${BOOTSTRAP_URL} -O bootstrap.zip  >/dev/null 2>&1
 cd ~
 
 for STARTNUMBER in `seq 1 1 $MNCOUNT`; do 
@@ -1019,42 +1020,42 @@ read -rp "* Please select your choice: " opt
          "1")
             echo "* Lets do a masternode!";
   domasternodes
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
       ;;
         "2")
             echo "* Resync Nodes that are out of sync!";
   check_resync_all
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
       ;;
         "3")
             echo "* Check if node is synced";
   check_nodes_sync
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
       ;;
         "4")
             echo "* Restart node if no param restart all";
   restart_nodes
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
             ;;
         "5")
             echo "* Stop node if no param stop all";
   stop_nodes
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
             ;;
         "6")
             echo "* Check node status if no param check all";
   check_nodes_status
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
             ;;
         "7")
             echo "* Resync specific node (useful if node is stopped)";
   resync_specific
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
             ;;
         "8")
             echo "* Calculate free memory and cpu for new nodes";
   memory_cpu_sysinfo
-            read -rp "${GREEN}* Press any key to return to main menu${NC}" pause
+            read -rp "* Press any key to return to main menu" pause
             ;;
 
         "9")
