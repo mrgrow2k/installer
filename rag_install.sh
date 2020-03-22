@@ -106,6 +106,30 @@ MNCOUNT=""
 REBOOTRESTART=""
 re='^[0-9]+$'
 
+echo -e "${BOLD}"
+read -e -p "Add swap space? (Recommended for VPS with less than 1GB of RAM) [Y/n] :" add_swap
+if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
+    swap_size="4G"
+else
+    echo -e "${NONE}* Swap space not created."
+fi
+
+if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
+    echo && echo -e "${NONE}* ${GREEN}Adding swap space, please wait...${GREEN}"
+    sudo fallocate -l $swap_size /swapfile
+    sleep 2
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    echo -e "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab > /dev/null 2>&1
+    sudo sysctl vm.swappiness=10
+    sudo sysctl vm.vfs_cache_pressure=50
+    echo -e "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf > /dev/null 2>&1
+    echo -e "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf > /dev/null 2>&1
+fi
+
+echo ""
+
 while ! [[ $MNCOUNT =~ $re ]] ; do
    echo -e "${YELLOW}* How many nodes do you want to create on this server?, followed by [ENTER]:${NC}" 
    read MNCOUNT  
