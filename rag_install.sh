@@ -350,10 +350,10 @@ for STARTNUMBER in `seq 1 1 $MNCOUNT`; do
     
        if [ -z "$PID" ]; then
         sleep 1 # wait 1 second
-        echo "masternode=1" >> ${NAME}.conf_TEMP
+        echo "masternode=1" >> $CONF_DIR/ragnarok.conf
         echo "masternodeprivkey=$PRIVKEY" >> $CONF_DIR/ragnarok.conf
-        echo "" >> ${NAME}.conf_TEMP
-        echo "#AddNodes" >> ${NAME}.conf_TEMP
+        echo "" >> $CONF_DIR/ragnarok.conf
+        echo "#AddNodes" >> $CONF_DIR/ragnarok.conf
         echo "addnode=174.138.9.14" >> $CONF_DIR/ragnarok.conf
         echo "addnode=174.138.14.163" >> $CONF_DIR/ragnarok.conf
         echo "addnode=139.180.197.202:8853" >> $CONF_DIR/ragnarok.conf
