@@ -107,7 +107,7 @@ REBOOTRESTART=""
 re='^[0-9]+$'
 
 echo -e "${BOLD}"
-read -e -p "Add swap space? (Recommended for VPS with less than 1GB of RAM) [Y/n] :" add_swap
+read -e -p "* ${PURPLE}Add swap space? (Recommended for VPS with 1GB of RAM) [Y/n] :${NC}" add_swap
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
     swap_size="4G"
 else
@@ -115,7 +115,7 @@ else
 fi
 
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
-    echo && echo -e "${NONE}* ${GREEN}Adding swap space, please wait...${GREEN}"
+    echo && echo -e "* ${NONE} ${GREEN}Adding swap space, please wait...${GREEN}"
     sudo fallocate -l $swap_size /swapfile
     sleep 2
     sudo chmod 600 /swapfile
@@ -177,7 +177,7 @@ echo -e "${WHITE}  / /_)/ |/ _ \/ _\ / __|/ _ \ \ \/  \/ / _\ | | __|"
 echo -e "${WHITE} / ___/| |  __/ (_|_\__ \  __/  \  /\  / (_|_| | |_ "
 echo -e "${WHITE} \/    |_|\___|\__,_|___/\___|   \/  \/ \__,_|_|\__|"
 echo ""
-echo -e "                  ${GREEN}This should only takes a few minutes..."
+echo -e "                  ${GREEN}This should only takes a few minutes...${NC}"
 echo ""
 wget ${BOOTSTRAP_URL} -O bootstrap.zip  >/dev/null 2>&1
 cd ~
