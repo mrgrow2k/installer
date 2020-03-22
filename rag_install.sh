@@ -20,7 +20,6 @@ FgLtWhite='\E[97m'
 BgLtBlue='\E[104m'
 
 # CONFIGURATION
-PARAM1=$*
 NAME="ragnarok"
 NAMEALIAS="ragna"
 
@@ -107,7 +106,7 @@ REBOOTRESTART=""
 re='^[0-9]+$'
 
 echo -e "${BOLD}"
-read -e -p "* ${PURPLE}Add swap space? (Recommended for VPS with 1GB of RAM) [Y/n] :${NC}" add_swap
+read -e -p "* Add swap space? (Recommended for VPS with 1GB of RAM) [Y/n] :" add_swap
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
     swap_size="4G"
 else
@@ -743,6 +742,8 @@ done
 }
 
 function restart_nodes (){
+  
+PARAM1=$*
 
 if [ -z "$PARAM1" ]; then
   PARAM1="*"      
@@ -1138,7 +1139,7 @@ function setup_node() {
   configure_nodes
   enable_firewall
   important_information_multi
-read -rp "${GREEN}* Press any key to continue${NC}" pause
+read -rp "* Press any key to continue" pause
 }
 
 
