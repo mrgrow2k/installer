@@ -499,8 +499,8 @@ fi
 
 
 function checks() {
-if [[ $(lsb_release -d) != *16.04* ]]; then
-  echo -e "${RED}* You are not running Ubuntu 16.04. Installation is cancelled.${NC}"
+if [[ $(lsb_release -d) != *16.04* ]] && [[ $(lsb_release -d) != *18.04* ]]; then
+  echo -e "${RED}* You are not running Ubuntu 16.04 or 18.04. Installation is cancelled.${NC}"
   exit 1
 fi
 
@@ -528,6 +528,11 @@ apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--fo
 build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev \
 libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
 libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ unzip libzmq5 dos2unix jq>/dev/null 2>&1
+
+if [[ $(lsb_release -d) == *18.04* ]] ; then
+   apt-get -qqy -o=Dpkg::Use-Pty=0 -o=Acquire::ForceIPv4=true install libssl1.0-dev
+fi 
+
 if [ "$?" -gt "0" ];
   then
     echo -e "${RED}* Not all required packages were installed properly. Try to install them manually by running the following commands:${NC}\n"
