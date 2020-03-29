@@ -106,7 +106,7 @@ REBOOTRESTART=""
 re='^[0-9]+$'
 
 echo -e "${BOLD}"
-read -e -p "* Add swap space? (Recommended for VPS with 1GB of RAM) [Y/n] :" add_swap
+read -e -p "* Add swap space? (For VPS with 1GB of RAM) [Y/n] :" add_swap
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
     swap_size="4G"
 else
@@ -527,7 +527,7 @@ apt-get install libzmq3-dev -y >/dev/null 2>&1
 apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" make software-properties-common \
 build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev \
 libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
-libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ unzip libzmq5 dos2unix jq>/dev/null 2>&1
+libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ unzip libzmq5 dos2unix htop jq>/dev/null 2>&1
 
 if [[ $(lsb_release -d) == *18.04* ]] ; then
    apt-get -qqy -o=Dpkg::Use-Pty=0 -o=Acquire::ForceIPv4=true install libssl1.0-dev
