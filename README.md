@@ -27,7 +27,7 @@ cat ~/.ragnarok_mn1/debug.log
 ### Check masternode status on server side
 Command:
 ```
-./bin/monkey-cli_mn1.sh startmasternode local false
+./bin/ragnarok-cli_mn1.sh startmasternode local false
 ```
 – A message “masternode successfully started” should appear
 ***
