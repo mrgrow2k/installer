@@ -24,12 +24,11 @@ NAME="ragnarok"
 NAMEALIAS="ragna"
 
 # ADDITINAL CONFIGURATION
-COIN_TGZ='https://github.com/ragnaproject/Ragnarok/releases/download/3.0.1.0/Ragnarok-3.0.1.0-DAEMON.zip'
+COIN_TGZ='https://github.com/ragnaproject/Ragnarok/releases/download/3.1.4/ragnarok-3.1.4-x86_64-linux-static.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 CONF_FILE="ragnrok.conf"
 CONF_DIR_TMP=~/"${NAME}_tmp"
-# BOOTSTRAP_URL='http://159.65.64.248/files/bootstrap.zip'
-BOOTSTRAP_URL='https://github.com/mrgrow2k/bootstraps/releases/download/ragna/bootstrap.zip'
+BOOTSTRAP_URL='https://github.com/mrgrow2k/bootstraps/releases/download/v3.1.4/bootstrap.zip'
 COIN_PATH='/usr/bin/'
 COIN_DAEMON='ragnarokd'
 COIN_CLI='ragnarok-cli'
